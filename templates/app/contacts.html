@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="authors-list">
+    <h2>Студенти які зробили</h2>
+    <ul>
+    {% for author in authors %}
+      <li>
+        <span class="author-name">{{ author.name }}</span>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+<!-- <div class="contact-info">
+    <h2>Роботу розробили студенти группи 15</h2>
+    {% for author in authors %}
+        <ul>
+            <li><i class="fa fa-phone"></i> {{ author.name }} </li>
+            <li><i class="fa fa-envelope"></i> {{ author.group }} </li>
+        </ul>
+    {% endfor %}
+    
+    
+  </div> -->
+    
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    {% for p in posts %}
+
+    <div class="post">
+        <h2 class="post-title"><a href="{{ p.number }}/">{{ p.title }}</a></h2>
+        <p class="post-description">{{ p.description }}</p>
+        <!-- <img class="post-image" src="assets/photo.jpg" alt="Image"> -->
+    </div>
+
+    {% endfor %}
+    
+{% endblock %}

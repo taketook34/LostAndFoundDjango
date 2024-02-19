@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="single-post">
+        <h1 class="single-post-title">Пост {{ number }}</h1>
+        <!-- <img src="image.jpg" class="post-image"> -->
+        <p class="single-post-text">Текст до посту {{ number }} </p>
+        <div class="single-post-author">
+          <p>Автор: Автор посту {{ number }} </p>
+          <p>Дата: Дата посту {{ number }}</p>
+        </div>
+      </div>
+{% endblock %}

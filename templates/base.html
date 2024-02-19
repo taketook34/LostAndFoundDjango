@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/css" href="{% static 'styles.css'%}" rel="stylesheet">
+  <title>Бюро знахідок</title>
+</head>
+<body>
+    <div class="menu">
+        <a href="{% url 'home' %}">Головна</a>
+        <a href="{% url 'contacts' %}">Про нас</a>
+        <a href="{% url 'postlist' %}">Знахідки</a>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>
