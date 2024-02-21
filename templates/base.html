@@ -30,8 +30,8 @@
         <a href="{% url 'home' %}">Головна</a>
         <a href="{% url 'contacts' %}">Про нас</a>
         <a href="{% url 'postlist' %}">Знахідки</a>
-        <a href="#">Реєстрація</a>
-        <a href="#">Логін</a>
+        <a href="{% url 'register' %}">Реєстрація</a>
+        <a href="{% url 'login' %}">Логін</a>
     </div>
 
   {% block content %}

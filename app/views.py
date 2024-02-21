@@ -36,3 +36,12 @@ def show_post(request, post_id):
     return render(request, "app/showpost.html", context={'number': post_id})
 
 
+def register_page(request):
+
+    return render(request, "app/registerpage.html")
+
+def login_page(request):
+
+    return render(request, "app/loginpage.html")
+
+
