@@ -10,8 +10,8 @@ def home(request):
 def postlist(request):
     context = {
         'posts': [
-            {"title": "Заголовок 1", "description": "Опис 1", "picture": "assets/photo.jpg", "number": 1},
-            {"title": "Заголовок 2", "description": "Опис 2", "picture": "assets/photo1.jpg", "number": 2},
+            {"title": "Заголовок 1", "description": "Опис 1", "number": 1},
+            {"title": "Заголовок 2", "description": "Опис 2", "number": 2},
         ]
     }
     return render(request, 'app/postlist.html', context=context)

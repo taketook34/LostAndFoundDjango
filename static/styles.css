@@ -91,38 +91,9 @@
     font-weight: bold;
   }
 
-
-  .hero-section {
-    background-color: #337ab7;
-    color: #ffffff;
-    padding: 50px 20px;
-    text-align: center;
-  }
+  /*Оформлення головної сторінки*/
   
-  .hero-section h1 {
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .hero-section p {
-    font-size: 18px;
-    margin-bottom: 20px;
-  }
-
-  .hero-section a {
-    color: #ffffff;
-    text-decoration: none;
-    padding: 10px 20px;
-    border: 1px solid #ffffff;
-    border-radius: 5px;
-    margin-top: 20px;
-  }
-  
-  .hero-section a:hover {
-    background-color: #ffffff;
-    color: #337ab7;
-  }
+ 
 
 /*Стилі для генерації для одного посту */
   .single-post {
