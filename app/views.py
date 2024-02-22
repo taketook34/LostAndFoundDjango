@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Post, Comment
 
 
 def home(request):
@@ -9,11 +10,13 @@ def home(request):
 
 def postlist(request):
     context = {
-        'posts': [
-            {"title": "Заголовок 1", "description": "Опис 1", "number": 1},
-            {"title": "Заголовок 2", "description": "Опис 2", "number": 2},
-        ]
+        'posts': Post.objects.all(),
+        # 'posts': [
+        #     {"title": "Заголовок 1", "description": "Опис 1", "number": 1},
+        #     {"title": "Заголовок 2", "description": "Опис 2", "number": 2},
+        # ]
     }
+
     return render(request, 'app/postlist.html', context=context)
     
 
