@@ -17,6 +17,11 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('post', kwargs={'post_id': self.pk})
 
+    class Meta:
+        verbose_name = "Пост"
+        verbose_name_plural = "Пости"
+
+
 class Comment(models.Model):
     # прописывать надо post через pk, потом исправлю что бы было сразу
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
@@ -26,6 +31,10 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"{self.post.pk}: {self.text} {self.pk}"
+
+    class Meta:
+        verbose_name = "Коментар"
+        verbose_name_plural = "Коментарі"
 
 
 # Create your models here.
