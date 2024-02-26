@@ -2,6 +2,7 @@
 {% block content %}
 
     <p>Сторінка реєстрації</p>
+
     <form action="{% url 'register' %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}

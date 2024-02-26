@@ -72,7 +72,16 @@ def logout_page(request):
     return redirect('home')
 
 def login_page(request):
-
-    return render(request, "app/loginpage.html", {'page_title': 'Логін'})
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            return render(request, "app/loginpage.html", {'page_title': 'Логін', 'error_message':'Нерпавильний логін або пароль'})
+    else:
+        return render(request, "app/loginpage.html", {'page_title': 'Логін'})
 
 

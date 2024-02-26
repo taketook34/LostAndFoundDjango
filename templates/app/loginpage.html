@@ -2,5 +2,15 @@
 {% block content %}
 
  <p>Сторінка логіну</p>
+ {% if error_message %}
+ <p>{{ error_message }}</p>
+ {% endif %}
+
+ <form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Логін">
+    <input type="password" name="password" placeholder="Пароль">
+    <button type="submit">Войти</button>
+</form>
 
 {% endblock %}
