@@ -2,13 +2,13 @@ from django.contrib import admin
 from .models import *
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'description', 'photo', 'founder_contact', 'data')
-    search_fields = ('id', 'name', 'founder_contact', 'data')
+    list_display = ('id', 'name', 'description', 'photo', 'author', 'founder_contact', 'data')
+    search_fields = ('id', 'name', 'founder_contact', 'author', 'data')
     list_editable = ('photo', 'founder_contact')
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('id', 'post', 'text', 'data')
-    search_fields = ('id', 'post', 'text', 'data')
+    list_display = ('id', 'post', 'text', 'author', 'data')
+    search_fields = ('id', 'post', 'text', 'author', 'data')
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment, CommentAdmin)

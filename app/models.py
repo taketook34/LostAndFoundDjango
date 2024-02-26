@@ -1,12 +1,12 @@
 from django.db import models
 from django.urls import reverse
-
+from django.contrib.auth.models import User
 
 class Post(models.Model):
     name = models.CharField(max_length=60)
     description = models.CharField(max_length=255)
-    #author
-    photo = models.ImageField(upload_to="photos/%Y/%m/", blank=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    photo = models.ImageField(upload_to="photos/%Y/%m/")
     founder_contact = models.CharField(max_length=60, null=True)
     data = models.DateTimeField(auto_now_add=True)
 
@@ -25,7 +25,7 @@ class Post(models.Model):
 class Comment(models.Model):
     # прописывать надо post через pk, потом исправлю что бы было сразу
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    #author
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     text = models.TextField()
     data = models.DateTimeField(auto_now_add=True)
 

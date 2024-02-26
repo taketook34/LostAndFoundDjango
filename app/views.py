@@ -1,6 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from .models import Post, Comment
-from django.views.generic import ListView, DetailView, CreateView
+
+from django.views.generic import ListView, DetailView
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.views import redirect_to_login
 
 
 def home(request):
@@ -8,14 +12,6 @@ def home(request):
     return render(request, 'app/homepage.html', {'page_title': 'Головна сторінка'})
     
 #assets/
-
-# def postlist(request):
-#     context = {
-#         'posts': Post.objects.all(),
-#         'page_title': 'Знахідки'
-#     }
-
-#     return render(request, 'app/postlist.html', context=context)
 
 class PostList(ListView):
     model = Post
@@ -45,12 +41,6 @@ def contacts(request):
     return render(request, 'app/contacts.html', context=context)
     
 
-# def show_post(request, post_id):
-#     """ ЕНдпоінт для кожної сторінки"""
-#     post = get_object_or_404(Post, id=post_id)
-
-#     return render(request, "app/showpost.html", context={'post': post, 'page_title': f'Пост \"{post.name}\"'})
-
 class PostShow(DetailView):
     model = Post
     template_name = 'app/showpost.html'
@@ -66,8 +56,20 @@ class PostShow(DetailView):
 
 
 def register_page(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect_to_login(request.GET.get('next'), request.META['HTTP_REFERER'])
+    else:
+        form = UserCreationForm()
+    return render(request, "app/registerpage.html", {'page_title': 'Реєстрація', 'form':form})
 
-    return render(request, "app/registerpage.html", {'page_title': 'Реєстрація'})
+def logout_page(request):
+
+    logout(request)
+    return redirect('home')
 
 def login_page(request):
 
