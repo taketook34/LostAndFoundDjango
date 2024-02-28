@@ -10,4 +10,6 @@
           <p> {{ post.data }} </p>
         </div>
       </div>
+
+    <a href="{% url 'addcomment' post_id=post.id %}">Залишити коментар</a>
 {% endblock %}

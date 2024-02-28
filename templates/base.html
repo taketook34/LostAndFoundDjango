@@ -15,6 +15,7 @@
         <a href="{% url 'postlist' %}">Знахідки</a>
         {% if user.is_authenticated %}
         <a href="{% url 'logout' %}">Вийти з аккаунту: {{ user.username }}</a>
+        <a href="{% url 'addpost' %}">Опублікувати</a>
         {% else %}
         <a href="{% url 'register' %}">Реєстрація</a>
         <a href="{% url 'login' %}">Логін</a>
