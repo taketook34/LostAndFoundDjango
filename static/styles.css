@@ -25,38 +25,63 @@
   }
   
   /* Пост */
-  .post {
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px #ccc;
-  }
-
-  .post a {
-    font-size: 24px;
-    color: peru;
-  }
-  
-  .post-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .post-description {
-    margin-bottom: 10px;
-  }
-  
-  .post-image {
-    transform: scale(0.5);
-    max-width: 100%;
-    display: block;
+.post {
+    width: 700px;
     margin: 0 auto;
-  }
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+.post-image {
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin-right: 20px;
+}
+
+.post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post-content {
+    overflow: hidden;
+}
+
+.post-title {
+    margin-top: 0;
+}
+
+.post-description {
+    margin-top: 10px;
+}
+
+.post-contact {
+  float: right;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.post-meta {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.post-author {
+    float: left;
+}
+
+.post-date {
+    float: right;
+}
   
   /* Цветовая схема */
   body {
+
     background-color: #f5f5f5;
     font-family: sans-serif;
   }
@@ -149,37 +174,115 @@
  
 
 /*Стилі для генерації для одного посту */
-  .single-post {
-    width: 500px;
-    margin: 20px auto;
-    border: 1px solid #ccc;
-    padding: 20px;
+
+.single-post {
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.single-post-image {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+.single-post-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.single-post-content {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+.single-post-title {
+  margin-top: 0;
+}
+
+.single-post-description {
+  margin-top: 10px;
+}
+
+.single-post-meta {
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.single-post-author {
+  float: left;
+}
+
+.single-post-date {
+  float: right;
+}
+
+.single-post-contact {
+  float: right;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.single-post-comments {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.single-post-comments a {
+  font-size: 12px;
+  font-weight: bold;
+  color: #0073b7;
+}
+  /*Стили для формы*/
+  .form-container {
+      width: 500px;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #e6f7ff;
   }
-  
-  .single-post-title {
-    font-size: 24px;
-    margin-top: 0;
+
+  .form-group {
+      margin-bottom: 15px;
   }
-  
-  .single-post-image {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
+
+  .form-label {
+      display: block;
+      margin-bottom: 5px;
   }
-  
-  .single-post-text {
-    font-size: 16px;
-    line-height: 1.5;
+
+  .form-input {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
   }
-  
-  .single-post-author {
-    margin-top: 20px;
-    border-top: 1px solid #ccc;
-    padding-top: 20px;
+
+  .custom-file-input {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
   }
-  
-  .single-post-author p {
-    font-size: 14px;
-    margin-bottom: 0;
+
+  .custom-file-input:hover {
+      background-color: #e6f7ff;
+  }
+
+  .form-submit {
+      background-color: #0073b7;
+      color: #fff;
+      padding: 5px 10px;
+      border: 1px solid #0073b7;
+      border-radius: 5px;
+      cursor: pointer;
   }
   

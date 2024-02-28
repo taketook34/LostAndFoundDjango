@@ -10,7 +10,12 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ('id', 'post', 'text', 'author', 'data')
     search_fields = ('id', 'post', 'text', 'author', 'data')
 
+class FeedbackMessageAdmin(admin.ModelAdmin):
+    list_display = ('id', 'email', 'text', 'data')
+    search_fields = ('id', 'email', 'text', 'data')
+
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment, CommentAdmin)
+admin.site.register(FeedbackMessage, FeedbackMessageAdmin)
 
 # Register your models here.

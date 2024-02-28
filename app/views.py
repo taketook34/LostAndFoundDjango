@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from .models import Post, Comment
-from .forms import PostForm, CommentForm
+from .forms import PostForm, CommentForm, AskForm
 
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView
@@ -30,29 +30,6 @@ class PostList(ListView):
         return Post.objects.all()
 
 
-
-# class AddPost(CreateView):
-#     model = Post
-#     template_name = 'app/addpost.html'
-#     success_url = reverse_lazy('postlist')
-#     login_url = reverse_lazy('login')
-#     fields = ['name', 'description', 'photo', 'founder_contact']
-
-#     def get_context_data(self, *, object_list=None, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['page_title'] = 'Додати знахідку'
-#         return context
-
-#     def form_valid(self, form):
-#         form.instance.user = self.request.user
-#         form.save()
-#         return super().form_valid(form)
-    
-#     def form_invalid(self, form):
-#         context = self.get_context_data(form=form)
-#         context['errors'] = form.errors
-#         return self.render_to_response(context)
-
 @login_required
 def add_post(request):
     if request.method == 'POST':
@@ -72,7 +49,7 @@ def add_post(request):
 
     return render(request, 'app/addpost.html', context=context)
 
-
+@login_required
 def add_comment(request, post_id):
     if request.method == 'POST':
         form = CommentForm(request.POST, request.FILES)
@@ -96,13 +73,24 @@ def add_comment(request, post_id):
 
 
 def contacts(request):
+    
+
+    if request.method == 'POST':
+        form = AskForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save(commit=True)
+            return redirect('contacts')
+    else:
+        form = AskForm()
+    
     context = {
         "authors": [
             {"name":"Хусаінов Дмитро ІО-11"},
             {"name":"Шинкарчук Богдан ІО-11"},
             {"name":"Столярчук Микола ІО-11"}
         ],
-        'page_title': 'Про нас' 
+        'page_title': 'Про нас',
+        'form': form, 
 
     }
 

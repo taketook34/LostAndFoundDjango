@@ -1,10 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<div class="form-container">
+
     <h1>Додавання посту</h1>
     <form action="{% url 'addpost' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Додати">
+        <!-- {{ form.as_p }} -->
+        {% for field in form %}
+          <div class="form-group">
+              <label for="{{ field.id }}">{{ field.label }}</label>
+              {{ field }}
+          </div>
+        {% endfor %}
+        <div class="form-group">
+          <input class="form-submit" type="submit" value="Додати">
+        </div>
+        <!-- <input type="submit" value="Додати"> -->
     </form>
+
+</div>
 {% endblock %}
