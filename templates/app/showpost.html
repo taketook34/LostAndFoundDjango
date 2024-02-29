@@ -1,16 +1,5 @@
 {% extends 'base.html' %}
 {% block content %}
-    <!-- <div class="single-post">
-        <h1 class="single-post-title">{{ post.name }}</h1>
-        <img class="post-image" src="{{ post.photo.url }}">
-        <p class="single-post-text">{{ post.description }} </p>
-        <div class="single-post-author">
-          <p> {{ post.author }} </p>
-          <p> {{ post.founder_contact }} </p>
-          <p> {{ post.data }} </p>
-        </div>
-      </div> -->
-
       <div class="single-post">
         <div class="single-post-image">
             <img src="{{ post.photo.url }}" alt="{{ post.name }}">
@@ -36,8 +25,27 @@
         </div>
         <div class="single-post-comments">
             <a href="{% url 'addcomment' post_id=post.id %}">
-                Залишити комментар
+                <span class="single-post-comments-text">
+                    <strong>Залишити комментар</strong>
+                </span>
             </a>
         </div>
+        {% for comment in comments %}
+            <div class="comment">
+                <div class="comment-author">
+                    {{ comment.author }}
+                </div>
+                <div class="comment-content">
+                    {{ comment.text }}
+                </div>
+                <div class="comment-date">
+                    {{ comment.created_at }}
+                </div>
+            </div>
+        {% endfor %}
+
+        
     </div>
+
+    
 {% endblock %}

@@ -6,7 +6,7 @@
     <h1>Додавання посту</h1>
     <form action="{% url 'addpost' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <!-- {{ form.as_p }} -->
+
         {% for field in form %}
           <div class="form-group">
               <label for="{{ field.id }}">{{ field.label }}</label>
@@ -16,7 +16,7 @@
         <div class="form-group">
           <input class="form-submit" type="submit" value="Додати">
         </div>
-        <!-- <input type="submit" value="Додати"> -->
+
     </form>
 
 </div>

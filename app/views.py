@@ -10,6 +10,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import redirect_to_login
 
 
+
 def home(request):
 
     return render(request, 'app/homepage.html', {'page_title': 'Головна сторінка'})
@@ -73,8 +74,6 @@ def add_comment(request, post_id):
 
 
 def contacts(request):
-    
-
     if request.method == 'POST':
         form = AskForm(request.POST, request.FILES)
         if form.is_valid():
@@ -105,6 +104,7 @@ class PostShow(DetailView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['page_title'] = f'Пост'
+        context['comments'] = Comment.objects.filter(post__id=self.kwargs['post_id'])
         return context
 
     def get_object(self):
