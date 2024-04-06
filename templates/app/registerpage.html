@@ -1,13 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <p>Сторінка реєстрації</p>
+
+<div class="form-container">
+    <h1>Сторінка реєстрації</h1>
 
     <form action="{% url 'register' %}" method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Зарегистрироваться">
+        {% for field in form %}
+        <div class="form-group">
+            <label for="{{ field.id }}">{{ field.label }}</label>
+            {{ field }}
+        </div>
+        {% endfor %}
+        <!-- {{ form.as_p }} -->
+        <div class="form-group">
+            <input type="submit" value="Зареєструватися">
+        </div>
+        
 
     </form>
-
+</div>
 {% endblock %}

@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app'
+    'app',
+    # 'djongo'  # package for MongoDB
 ]
 
 MIDDLEWARE = [
@@ -80,6 +81,15 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+
+    # 'default': {
+    #         'ENGINE': 'djongo',
+    #         'NAME': 'app-db',
+    #         'ENFORCE_SCHEMA': False,
+    #         'CLIENT': {
+    #             'host': 'mongodb+srv://taketook34:qazus3467@cluster0.47rsdhr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+    #         }  
+    # }
 }
 
 
