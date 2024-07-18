@@ -1,5 +1,3 @@
-# Project Title: [Your Project Name]
-
 ## Short Description
 
 Бюро знахідок
